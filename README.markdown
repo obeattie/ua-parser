@@ -7,11 +7,48 @@ The crux of the original parser--the data collected by [Steve Souders][4] over t
 
 `ua-parser` is just a small wrapper around this data.
 
+Maintainers
+-----------
+
+* C#:         [Søren Enemærke ](https://github.com/enemaerke) ([@sorenenemaerke](https://twitter.com/sorenenemaerke))  
+* D:          [Shripad K ](https://github.com/shripadk) ([@24shri](https://twitter.com/24shri))  
+* Haskell:    [Ozgun Ataman ](https://github.com/ozataman) ([@ozataman](https://twitter.com/ozataman))  
+* Java:       [Steve Jiang ](https://github.com/sjiang) ([@sjiang](https://twitter.com/sjiang))  
+* JavaScript: [Tobie Langel ](https://github.com/tobie) ([@tobie](https://twitter.com/tobie))  
+* Perl:       [Mamod Mehyar ](https://github.com/mamod) ([@mamod](https://twitter.com/mamod))  
+* PHP:        [Dave Olsen ](https://github.com/dmolsen) ([@dmolsen](https://twitter.com/dmolsen))  
+* Python:     [Lindsey Simon ](https://github.com/elsigh) ([@elsigh](https://twitter.com/elsigh))  
+
+* `regexes.yaml`: Lindsey Simon & Tobie Langel
+
 irc channel
 -----------
 
 [#ua-parser on freenode](irc://chat.freenode.net#ua-parse).
 
+Contributing Changes to regexes.yaml
+------------------------------------
+
+Contributing to the project, especially `regexes.yaml`, is both welcomed and encouraged. To do so just do the following:
+
+1. Fork the project
+2. Create a branch for your changes
+3. Modify `regexes.yaml` as appropriate
+4. Add tests to the following files and follow their format:
+    * `test_resources/test_device.yaml`
+    * `test_resources/test_user_agent_parser.yaml`
+    * `test_resources/test_user_agent_parser_os.yaml`
+5. Push your branch to GitHub and submit a pull request
+6. Monitor the pull request to make sure the Travis build succeeds. If it fails simply make the necessary changes to your branch and push it. Travis will re-test the changes.
+
+That's it. If you don't feel comfortable forking the project or modifying the YAML you can also [submit an issue](https://github.com/tobie/ua-parser/issues) that includes the appropriate user agent string and the expected results of parsing.
+
+Other ua-parser Libraries
+-------------------------
+
+There are a few other libraries which make use of ua-parser's patterns. These include:
+
+* Ruby - [user_agent_parser](https://github.com/toolmantim/user_agent_parser)
 
 Usage :: [node.js][1]
 ---------------------
@@ -77,7 +114,7 @@ print result_dict['os']
 # {'major': '5', 'patch_minor': None, 'minor': '1', 'family': 'iOS', 'patch': None}
 
 print result_dict['device']
-# {'is_spider': False, 'is_mobile': True, 'family': 'iPhone'}
+# {'family': 'iPhone'}
 ```
 
 
@@ -265,21 +302,6 @@ Just (OSResult {osrFamily = "iOS", osrV1 = Just "5", osrV2 = Just "1", osrV3 = N
 ```
 
 Plesae refer to Haddocks for more info; the API is pretty straightforward.
-
-Maintainers
------------
-
-* C#:         Søren Enemærke ([enemaerke](https://github.com/enemaerke))  
-* D:          Shripad K ([shripadk](https://github.com/shripadk))  
-* Haskell:    Ozgun Ataman ([ozataman](https://github.com/ozataman))  
-* Java:       Steve Jiang ([sjiang](https://github.com/sjiang))  
-* JavaScript: Tobie Langel ([tobie](https://github.com/tobie))  
-* Perl:       Mamod Mehyar ([mamod](https://github.com/mamod))  
-* PHP:        Dave Olsen ([dmolsen](https://github.com/dmolsen))  
-* Python:     Lindsey Simon ([elsigh](https://github.com/elsigh))  
-
-* `regexes.yaml`: Lindsey Simon & Tobie Langel
-
 
 License
 -------
