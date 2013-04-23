@@ -25,8 +25,8 @@ class install(_install):
         regexes = yaml.load(open(yaml_dest))
         json_dest = yaml_dest.replace('.yaml', '.json')
         json.dump(regexes, open(json_dest, 'w'))
+        
         _install.run(self)
-
 
 setup(
     name='ua-parser',
@@ -41,7 +41,7 @@ setup(
     url='https://github.com/tobie/ua-parser',
     include_package_data=True,
     package_data={'': ['regexes.yaml', 'regexes.json']},
-    install_requires=['pyyaml'],
+    install_requires=['PyYAML'],
     cmdclass={'install': install, 'develop': install},
     classifiers=[
         'Development Status :: 4 - Beta',
